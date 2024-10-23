@@ -12,7 +12,7 @@
 
 #include "../includes/pushswap.h"
 
-void clean(t_stack **a, t_stack **b, t_info **info)
+void	clean(t_stack **a, t_stack **b, t_info **info)
 {
 	if (b && *b)
 		free_stack(*b);

@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 	t_info	*info;
 	char	**z;
 
-	if (checks_are_ok(av[1]) == true && ac > 1)
+	if (ac > 1 && checks_are_ok(av[1]) == true)
 	{
 		if (ac == 2)
 		{

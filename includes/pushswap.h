@@ -122,7 +122,7 @@ void	rotate_stack(t_stack **a, t_stack **b, t_info *info, t_price *cheapest);
 
 // MEMORY MANAGEMENT
 void	free_stack(t_stack *stack);
-void 	clean(t_stack **a, t_stack **b, t_info **info);
+void	clean(t_stack **a, t_stack **b, t_info **info);
 void	initialize_struct_price(t_stack *stack);
 
 // CHECKERS

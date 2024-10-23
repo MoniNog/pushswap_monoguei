@@ -17,10 +17,10 @@ long	ft_atol(const char *str);
 t_stack	*new_node(char *av, t_info *info)
 {
 	t_stack		*new;
-	long			number;
+	long		number;
 
 	number = ft_atol(av);
-    if (number >= INT_MIN && number <= INT_MAX)
+	if (number >= INT_MIN && number <= INT_MAX)
 	{
 		new = malloc(sizeof(t_stack));
 		if (!new)
@@ -31,7 +31,7 @@ t_stack	*new_node(char *av, t_info *info)
 		new->prev = (NULL);
 		return (new);
 	}
-	else 
+	else
 	{
 		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);

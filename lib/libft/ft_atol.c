@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 16:14:34 by monoguei          #+#    #+#             */
-/*   Updated: 2024/10/23 21:19:01 by moni             ###   ########.fr       */
+/*   Updated: 2024/10/23 21:36:33 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,46 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+long	convert_to_long(const char *str, int *sign)
+{
+	long	result;
+	int		i;
+
+	result = 0;
+	*sign = 1;
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			*sign = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
+	return (result);
+}
+
 long	ft_atol(const char *str)
 {
-    long	result;
-    int		sign;
-    int		i;
+	long	result;
+	int		sign;
 
-    result = 0;
-    sign = 1;
-    i = 0;
-    while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-        i++;
-    if (str[i] == '-' || str[i] == '+')
-    {
-        if (str[i] == '-')
-            sign = -1;
-        i++;
-    }
-    while (str[i] >= '0' && str[i] <= '9')
-    {
-        if (result > (LONG_MAX - (str[i] - '0')) / 10)
-            return (sign == 1 ? LONG_MAX : LONG_MIN);
-        result = result * 10 + (str[i] - '0');
-        i++;
-    }
-    return (result * sign);
+	result = convert_to_long(str, &sign);
+	if (result > (LONG_MAX - (str[0] - '0')) / 10)
+	{
+		if (sign == 1)
+		{
+			return (LONG_MAX);
+		}
+		else
+		{
+			return (LONG_MIN);
+		}
+	}
+	return (result * sign);
 }
