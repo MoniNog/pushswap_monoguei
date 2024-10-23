@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include "get_next_line.h"
 # include "ft_printf.h"
+# include "pushswap.h"
 # include <stdbool.h>
 # include <limits.h>
 
@@ -29,7 +30,7 @@ typedef struct s_list
 }					t_list;
 
 // long	ft_atol(const char *str);
-int		ft_atoi(const char *str);
+long	ft_atol(const char *str);
 void	*ft_calloc(size_t nb, size_t size);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);

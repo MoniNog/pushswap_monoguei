@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRC_DIR = src/
 OBJ_DIR = obj/
 
-SRC = ft_atoi.c ft_putendl_fd.c ft_strlen.c ft_bzero.c \
+SRC = ft_atol.c ft_putendl_fd.c ft_strlen.c ft_bzero.c \
 		ft_putnbr_fd.c ft_strmapi.c\
 		ft_calloc.c        ft_putnbr_fd.c       ft_strncmp.c\
 		ft_lstadd_back.c   ft_lstclear.c        ft_lstiter.c\

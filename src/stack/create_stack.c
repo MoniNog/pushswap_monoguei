@@ -12,13 +12,15 @@
 
 #include "../../includes/pushswap.h"
 
+long	ft_atol(const char *str);
+
 t_stack	*new_node(char *av, t_info *info)
 {
 	t_stack		*new;
-	int			number;
+	long			number;
 
-	number = ft_atoi(av);
-	if (is_int(number) == true)
+	number = ft_atol(av);
+    if (number >= INT_MIN && number <= INT_MAX)
 	{
 		new = malloc(sizeof(t_stack));
 		if (!new)
@@ -30,7 +32,10 @@ t_stack	*new_node(char *av, t_info *info)
 		return (new);
 	}
 	else 
+	{
 		write(2, "Error\n", 6);
+		exit(EXIT_FAILURE);
+	}
 	return (NULL);
 }
 
